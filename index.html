@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Analog</title>
+    <link rel="shortcut icon" href="gut.png" type="image/x-icon">
+    <style>
+        #clockcontainer {
+            position: relative;
+            margin: auto;
+            border: 2px solid black;
+            border-radius: 50%;
+            width: 50vw;
+            height: 50vw;
+            background-image: url(img/s.png), url(img/dr.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            object-fit: cover;
+        }
+
+        #hours,
+        #minutes,
+        #seconds {
+            position: absolute;
+            background-color: black;
+            border-radius: 10px;
+            transform-origin: bottom;
+            z-index: 9;
+        }
+
+        #hours {
+            width: 1.5%;
+            height: 29%;
+            top: 22%;
+            left: 49.4%;
+        }
+
+        #minutes {
+            width: 1.2%;
+            height: 33%;
+            top: 17%;
+            left: 49.4%;
+        }
+
+        #seconds {
+            width: 1%;
+            height: 36%;
+            top: 14%;
+            left: 49.4%;
+            opacity: 0.8;
+        }
+
+        #daydate {
+            position: absolute;
+            /* background: 2px rgb(80, 76, 71); */
+            background-image: -moz-linear-gradient(to right, rgba(195, 108, 26, 0.712), rgba(20, 98, 187, 0.719));
+            width: 17vw;
+            height: 5vw;
+            top: 72%;
+            left: 33.3%;
+            text-align: center;
+            font-size: 1.2vw;
+            font-style: italic;
+            color: rgb(212, 233, 236);
+        }
+
+        #s {
+            position: absolute;
+            width: 17vw;
+            height: 5vw;
+            top: 72%;
+            left: 83.3%;
+            text-align: center;
+        }
+
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        #self {
+            display: flex;
+            justify-content: end;
+            position: relative;
+            bottom: 12vh;
+        }
+
+        ul {
+            display: flex;
+            padding: 0% 12vh;
+            list-style: none;
+        }
+
+        ul li img {
+            height: 8vh;
+            padding: 0% 2vh;
+        }
+    </style>
+    <script>
+        setInterval(() => {
+            v = new Date()
+            h = v.getHours()
+            m = v.getMinutes()
+            s = v.getSeconds()
+            hrotation = 30 * h + m * 1 / 2
+            mrotation = 6 * m + s * 1 / 10
+            srotation = 6 * s
+            hours.style.transform = `rotate(${hrotation}deg)`;
+            minutes.style.transform = `rotate(${mrotation}deg)`;
+            seconds.style.transform = `rotate(${srotation}deg)`;
+            document.getElementById("daydate").innerHTML = v;
+        }, 1000);
+    </script>
+</head>
+
+<body background="img/w.jpg">
+    <div id="clockcontainer">
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+        <div id="daydate"></div>
+    </div>
+    <div id="self">
+        <ul>
+            <li><a href="https://www.hackerrank.com/vikashsharma21"><img src="img/hackerrank.svg" alt=""></a></li>
+            <li><a href="https://instagram.com/vikashh96"><img src="img/instagram.svg" alt=""></a></li>
+            <li><a href="mailto:vikashsharrma21@navgurukul.org"><img src="img/logo-gmail.png" alt=""></a></li>
+            <li><a href="https://github.com/vikashsharma26"><img src="img/gut.png" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
